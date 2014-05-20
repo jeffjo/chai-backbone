@@ -117,7 +117,7 @@
       else
         _super.apply(this, arguments)
 
-  chai.Assertion.addMethod 'call', (methodName) ->
+  chai.Assertion.addMethod 'invoke', (methodName) ->
     object = flag(this, 'object')
     definedActions = flag(this, 'whenActions') || []
     definedActions.push

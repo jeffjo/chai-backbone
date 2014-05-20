@@ -45,15 +45,17 @@ are extracted in the expected manner.
 "page/3".should.route.to myRouter, "openPage", considering: [conflictingRouter]
 ```
 
-### `call`
+### `invoke`
 
 This assertion is ideal for testing view callbacks it will rebind view
 events to test DOM events
 
 ```coffeescript
-view.should.call('startAuthentication').when ->
+view.should.invoke('startAuthentication').when ->
   view.$('a.login').trigger 'click'
 ```
+
+Note: This was changed from `call` to `invoke` because of this [change] (https://github.com/chaijs/chai/pull/140/files) in chai which overwrites `call` back to the version defined on `Function.prototype`.
 
 ## Installation and Setup
 

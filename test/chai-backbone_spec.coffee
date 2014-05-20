@@ -65,20 +65,20 @@ describe 'Chai-Backbone matchers', ->
     it 'leaves the `to` keyword working properly', ->
       expect('1').to.be.equal '1'
 
-  describe 'call', ->
+  describe 'invoke', ->
 
     it 'asserts if a method on provided object is called', ->
       obj =
         method: ->
 
-      obj.should.call('method').when ->
+      obj.should.invoke('method').when ->
         obj.method()
 
     it 'raises AssertionError if method was not called', ->
       obj =
         method: ->
       expect(->
-        obj.should.call('method').when ->
+        obj.should.invoke('method').when ->
           "noop"
       ).to.throw /been called/
 
@@ -90,6 +90,6 @@ describe 'Chai-Backbone matchers', ->
          eventCall: ->
 
        viewInstance = new viewClass
-       viewInstance.should.call('eventCall').when ->
+       viewInstance.should.invoke('eventCall').when ->
          viewInstance.$el.trigger('click')
 
